@@ -1,0 +1,36 @@
+exp_name: nico_resvit18_multi_unshuffle_bf0.02_lr0.01
+net: resnet18_ours_cbam_multi
+dataset: NICO
+image_folder: /home/zxz/proj/caam/dataset/flare/dataset2
+cxt_dic_path: /home/zxz/proj/caam/dataset/flare/Context_name2label.json
+class_dic_path: /home/zxz/proj/caam/dataset/flare/name2label.json
+training_opt:
+  seed: 7
+  classes: 2
+  batch_size: 64
+  lr: 0.002
+  warm: 2
+  epoch: 20
+  milestones: [5,10]
+  # milestones: [80, 140, 200]
+  save_epoch: 1
+  print_batch: 1
+  mean: [0.5]
+  std: [0.5]
+variance_opt:
+  balance_factor: 1
+  training_dist: {}
+  env: True
+  mode: 'ours'
+  erm_flag: True
+  sp_flag: True
+  n_env: 4
+  env_type: 'auto-iter'
+  split_renew: 15
+  split_renew_iters: 1
+  from_scratch: False
+  penalty_weight: 5e5
+  penalty_anneal_iters: 0
+  #2 blocks, 4 layers
+  split_layer: 2
+resume: False

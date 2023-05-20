@@ -1,0 +1,23 @@
+net: resnet18
+dataset: NICO
+image_folder: /home/zxz/proj/caam/dataset/flare/dataset2
+cxt_dic_path: /home/zxz/proj/caam/dataset/flare/Context_name2label.json
+class_dic_path: /home/zxz/proj/caam/dataset/flare/name2label.json
+training_opt:
+  seed: 7
+  batch_size: 64
+  lr: 0.002
+  warm: 2
+  epoch: 20
+  milestones: [5,10]
+  # milestones: [80, 140, 200]
+  save_epoch: 1
+  print_batch: 1
+  mean: [0.5]
+  std: [0.5]
+  mixup: True
+variance_opt:
+  balance_factor: 1
+  mode: 'baseline'
+  env_type: 'baseline'
+resume: False
